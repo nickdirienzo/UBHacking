@@ -30,13 +30,13 @@ img{
 	content: "";
     position: absolute;
     overflow: hidden;
-	background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.7)),url('../bgagain.jpg') no-repeat center center fixed;
+	background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.75)),url('../bgagain.jpg') no-repeat center center fixed;
     background-size: cover;
     z-index: -1; /* Keep the background behind the content */
-    height: 100%; width: 100%; /* Using Glen Maddern's trick /via @mente */
+    height: 101%; width: 101%; /* Using Glen Maddern's trick /via @mente */
     /* don't forget to use the prefixes you need */
     transform-origin: top right;
-    -webkit-filter: blur(3px);
+    /*-webkit-filter: blur(2px);*/
 
 }
 .email{
@@ -77,13 +77,27 @@ img{
 	font-size: 200%;
 	font-weight: 100;
 }
+.sponsors{
+    font-size: 150%;
+    color: white;
+    position: absolute;  
+    left: 50%;
+    top: 50%;
+    margin-top: 1%;
+    transform: translate(-50%, -70%);    
+    -webkit-transform: translate(-50%, -70%);
+    -moz-transform: translate(-50%, -70%);
+    -ms-transform: translate(-50%, -70%);
+}
+
+
 footer{
-    font-size: 100%;
+    font-size: 150%;
     color: gray;
-   position:absolute;
-   bottom:0;
-   width:100%;
-   height:60px;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:25%;
 }
 
 input{
