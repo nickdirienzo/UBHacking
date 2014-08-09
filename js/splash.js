@@ -10,10 +10,14 @@ $(document).ready(function(){
 
 	});
 
-	$('.btn-signUp').click(function(){
-		$('.moreInfo').fadeOut(1000, function(){
-			$('.afterSignup').fadeIn(1000);
-		});
+	$(document).keypress(function(e){
+		if(e.which == 13){
+			$('footer').fadeOut(1000);
+			$('.header').fadeOut(1000, function(){
+				$('.afterSignup').fadeIn(1000);
+			});
+
+		}
 	});
 
 });
