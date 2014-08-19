@@ -96,6 +96,12 @@ img{
     -ms-transform: translate(-50%, -70%);
 }
 
+@media screen and (max-width: 600px) {
+  footer {
+    visibility: hidden;
+  }
+}
+
 
 footer{
     font-size: 150%;
