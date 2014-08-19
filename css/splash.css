@@ -5,7 +5,13 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.date {
+    font-size: 300%;
+    text-align: center;
+    color: white;
+    margin-bottom: 8%;
 
+}
 
 .title{
 	font-weight: 100;
