@@ -15,6 +15,7 @@ $(document).ready(function(){
 			$('footer').fadeOut(1000);
 			$('.header').fadeOut(1000, function(){
 				$('.afterSignup').fadeIn(1000);
+				$('.afterSignup').css('visibility', 'visible');
 			});
 
 		}
