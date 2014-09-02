@@ -119,7 +119,7 @@ body:before {
 	background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),url('https://scontent-b-lga.xx.fbcdn.net/hphotos-frc1/t31.0-8/901798_298269540303606_348704726_o.jpg') no-repeat center center fixed;
     background-size: cover;
     z-index: -1; 
-    height: 100%; width: 102%; 
+    height: 100%; width: 100%; 
     transform-origin: top right;
 
 }
