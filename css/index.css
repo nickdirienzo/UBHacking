@@ -1,0 +1,281 @@
+/*body {
+
+	  	min-height: 2000px;
+}*/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+
+body {
+	color:white;
+    font-weight: 100;
+    font-family: "Helvetica Neue",Helvetica,'Open Sans',sans-serif;
+}
+
+.img{
+	content: "";
+    position: absolute;
+    overflow: hidden;
+	background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),url('https://scontent-b-lga.xx.fbcdn.net/hphotos-frc1/t31.0-8/901798_298269540303606_348704726_o.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1; /* Keep the background behind the content */
+    height: 100%; width: 100%; /* Using Glen Maddern's trick /via @mente */
+    /* don't forget to use the prefixes you need */
+    transform-origin: top right;
+    -webkit-filter: blur(2px);
+
+}
+a, a:hover, a:visited {
+  color:inherit;
+  text-decoration: none;
+ }
+
+body:before {
+
+}
+#footer {
+	text-align: center;
+	position: absolute;
+	bottom: 15px;
+	width: 100%;
+	height: 10px;
+	color: white;
+	font-weight: 100;
+}
+body {
+	font-weight: 100;
+}
+body:before {
+
+}
+
+.row1faq{
+	position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    height: 100%;
+}
+.row1faq:before{
+	content: "";
+    position: absolute;
+    overflow: hidden;
+	background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),url('https://scontent-b-lga.xx.fbcdn.net/hphotos-frc1/t31.0-8/901798_298269540303606_348704726_o.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1; /* Keep the background behind the content */
+    height: 500px; width: 100%; /* Using Glen Maddern's trick /via @mente */
+    /* don't forget to use the prefixes you need */
+    transform-origin: top right;
+    -webkit-filter: blur(2px);
+}
+
+
+
+
+
+@media screen and (max-width: 360px) {
+
+	.row1{
+		width: 360px; 
+	}
+
+	img{
+		width: 360px;
+	}
+
+
+}
+
+@media screen and (max-width: 320px) {
+
+	.row1{
+		width: 320px; 
+	}
+
+	img{
+		width: 320px;
+	}
+
+
+}
+
+.row1{
+	position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    height: 100%;
+}
+
+.gold{
+	height: 400px;
+	width: 400px;
+
+}
+
+.logos{
+	padding-top: 5%;
+}
+
+.row1:before{
+	content: "";
+    position: absolute;
+    overflow: hidden;
+	background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),url('https://scontent-b-lga.xx.fbcdn.net/hphotos-frc1/t31.0-8/901798_298269540303606_348704726_o.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1; 
+    height: 100%; width: 102%; 
+    transform-origin: top right;
+
+}
+.headerContent{
+/*	margin-left:auto;
+	margin-right:auto;
+	width: 50%;*/
+	margin: 0 auto;
+	margin-top: 10%;
+
+
+}
+.faqContainer{
+	margin-left: 20%;
+}
+.about{
+	position: relative;
+	min-height: 500px;
+	background-color: white;
+}
+.inner12{
+/*	text-align: center;
+*/	
+	margin-left: 5px;
+	margin-top: 10px;
+	color:#132531;
+}
+.row2{
+	margin-top: 350px;
+	text-align: center;
+	position: relative;
+
+}
+.row3{
+	background-color:#132531;
+}
+.margin12{
+	margin-top: 10%;
+}
+.faq{
+	color: white;
+	background-color: #132531;
+	text-align: center;
+}
+.container{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 10%;
+}
+.navbar-static-top {
+  margin-bottom: 19px;
+  height: 100px;
+}
+
+.navbar-brand{
+	font-size: 300%;
+}
+.heading{
+	text-align: center;
+	font-size:500%;
+	font-weight: 100;
+	color: white;
+}
+
+.col-md-6{
+	text-align: center;
+	margin-top: 1%;
+	font-size: 300%;
+	font-weight: 100;
+	color:white;
+}
+.innerUpper{
+	text-align: center;
+	margin-top: 1%;
+	font-size: 300%;
+	font-weight: 100;
+	color:white;
+}
+.upper{
+	margin-left: 8%;
+}
+.leftText{
+	color: #132531;
+}
+.rightText{
+	color: #132531;
+}
+.buttonContainer{
+	text-align: center;
+}
+.rightButton{	
+	min-width: 100px;
+	width: 8%;
+	margin-top: -32px;
+	margin-left: 54%;
+	margin-right: auto;
+	font-weight: 100;
+	font-size: 150%;
+	background-color: white;
+	overflow: hidden;
+	text-align: center;
+	border: 1px solid;
+
+}
+
+.faqCol{
+	margin-bottom: 5%;
+}
+
+.leftButton{
+	background-color: white;
+	min-width: 100px;
+	overflow: hidden;
+	width: 8%;
+	margin-left: 40%;
+	margin-right: 10%;
+/*	margin-left: 35%;*/
+	font-weight: 100;
+	font-size: 150%;
+	color:white;
+	text-align: center;
+	border: 1px solid;
+}
+
+.sponsorTitle{
+	color: black;
+}
+
+.faqTitle{
+	font-size: 500%;
+	margin-bottom: 3%;
+}
+
+.sponsors{
+	min-height: 350px;
+	margin-top: 5%;
+	text-align: center;
+	font-size: 200%;
+	font-color:black;
+	background-color: white;
+
+}
+.col-md-3{
+	margin-left:1%;
+	color:white;
+	font-weight: 100;
+	font-size: 130%;
+
+}
+.sponsorContainer{
+
+}
+.col-md-2{		
+	margin-top: 1%;
+	margin-left:1%;
+	font-size: 300%;
+	font-weight: 100;
+	color:white;
+}
