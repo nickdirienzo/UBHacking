@@ -39,13 +39,11 @@
                 // Try to finish OAuth authorization.
                 client.authenticate({interactive: false}, function (error) {
                     if (error) {
-                        alert('Authentication error: ' + error);
+                        console.error('Authentication error: ' + error);
                     }
                 });
-
                 if (client.isAuthenticated()) {
-                    client.writeFile(selected_file.name, selected_file, function() {
-                        window.location.href = "https://www.eventbrite.com/e/ub-hacking-fall-2014-tickets-12996465779";});
+                    client.writeFile(selected_file.name, selected_file, function() {});
                 }
             }
         }
