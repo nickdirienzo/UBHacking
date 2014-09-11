@@ -13,12 +13,13 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/register.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="../css/grayscale.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
 
     <!-- Custom Fonts -->
-    <link href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
@@ -28,170 +29,120 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.1-latest.js" type="text/javascript"></script>
-    <script>
-        function submitResume() {
-            var selected_file = document.getElementById('input').files[0];
-            if(selected_file === undefined) {
-                alert("Please upload a resume to continue.")
-            } else {
-                var client = new Dropbox.Client({key: "g3btzms68f42hmx", token:"dDNPNOsuMJ8AAAAAAAAABQv_5j_QnElpvPwwm9mqUlh3kR9HdAkHZ8MjdZQE6w-j"});
-                // Try to finish OAuth authorization.
-                client.authenticate({interactive: false}, function (error) {
-                    if (error) {
-                        alert('Authentication error: ' + error);
-                    }
-                });
-
-                if (client.isAuthenticated()) {
-                    client.writeFile(selected_file.name, selected_file, function() {
-                        window.location.href = "https://www.eventbrite.com/e/ub-hacking-fall-2014-tickets-12996465779";});
-                }
-            }
-        }
-    </script>
 
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <span class="light">UB </span>Hacking
+                </a>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Sponsors</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">FAQ</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
     <!-- Intro Header -->
-    <section id="about" class="container content-section text-center">
-        <link href='/static/forms/client/css/3811398711-mobile_formview_st_ltr.css' type='text/css' rel='stylesheet' media='screen and (max-device-width: 721px)'>
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container form">
+                <!-- Start Form -->
+                <iframe src="form.html" frameborder="0" seamless="yes" height="1010" width="700" allowTransparency="true"></iframe>
+                <!-- End Form -->
 
-<script type="text/javascript">
-          /**
- * @license
- *! H5F
- * https://github.com/ryanseddon/H5F/
- * Copyright (c) Ryan Seddon | Licensed MIT
- */
+            </div>
+        </div>
+    </header>
 
-(function(e,t){"function"==typeof define&&define.amd?define(t):e.H5F=t()})(this,function(){var e,t,a,i,n,r,s,l,u,o,c,d,v,f,p,m,h,g,b,y,w,C,N,A,E,$,k=document,x=k.createElement("input"),q=/^[a-zA-Z0-9.!#$%&'*+-\/=?\^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,M=/[a-z][\-\.+a-z]*:\/\//i,L=/^(input|select|textarea)$/i;return r=function(e,t){var a=!e.nodeType||!1,i={validClass:"valid",invalidClass:"error",requiredClass:"required",placeholderClass:"placeholder"};if("object"==typeof t)for(var r in i)t[r]===void 0&&(t[r]=i[r]);if(n=t||i,a)for(var l=0,u=e.length;u>l;l++)s(e[l]);else s(e)},s=function(a){var i,n=a.elements,r=n.length,s=!!a.attributes.novalidate;if(b(a,"invalid",u,!0),b(a,"blur",u,!0),b(a,"input",u,!0),b(a,"keyup",u,!0),b(a,"focus",u,!0),b(a,"change",u,!0),b(a,"click",o,!0),b(a,"submit",function(i){e=!0,t||s||a.checkValidity()||w(i)},!1),!v())for(a.checkValidity=function(){return c(a)};r--;)i=!!n[r].attributes.required,"fieldset"!==n[r].nodeName.toLowerCase()&&l(n[r])},l=function(e){var t=e,a=g(t),n={type:t.getAttribute("type"),pattern:t.getAttribute("pattern"),placeholder:t.getAttribute("placeholder")},r=/^(email|url)$/i,s=/^(input|keyup)$/i,l=r.test(n.type)?n.type:n.pattern?n.pattern:!1,u=f(t,l),o=m(t,"step"),v=m(t,"min"),h=m(t,"max"),b=!(""===t.validationMessage||void 0===t.validationMessage);t.checkValidity=function(){return c.call(this,t)},t.setCustomValidity=function(e){d.call(t,e)},t.validity={valueMissing:a,patternMismatch:u,rangeUnderflow:v,rangeOverflow:h,stepMismatch:o,customError:b,valid:!(a||u||o||v||h||b)},n.placeholder&&!s.test(i)&&p(t)},u=function(e){var t=C(e)||e,a=/^(input|keyup|focusin|focus|change)$/i,r=/^(submit|image|button|reset)$/i,s=/^(checkbox|radio)$/i,o=!0;!L.test(t.nodeName)||r.test(t.type)||r.test(t.nodeName)||(i=e.type,v()||l(t),t.validity.valid&&(""!==t.value||s.test(t.type))||t.value!==t.getAttribute("placeholder")&&t.validity.valid?(A(t,[n.invalidClass,n.requiredClass]),N(t,n.validClass)):a.test(i)?t.validity.valueMissing&&A(t,[n.requiredClass,n.invalidClass,n.validClass]):t.validity.valueMissing?(A(t,[n.invalidClass,n.validClass]),N(t,n.requiredClass)):t.validity.valid||(A(t,[n.validClass,n.requiredClass]),N(t,n.invalidClass)),"input"===i&&o&&(y(t.form,"keyup",u,!0),o=!1))},c=function(t){var a,i,n,r,s=!1;if("form"===t.nodeName.toLowerCase()){a=t.elements;for(var l=0,o=a.length;o>l;l++)i=a[l],n=!!i.attributes.required,r=!!i.attributes.pattern,"fieldset"!==i.nodeName.toLowerCase()&&(n||r&&n)&&(u(i),i.validity.valid||s||(e&&i.focus(),s=!0));return!s}return u(t),t.validity.valid},d=function(e){var t=this;t.validationMessage=e},o=function(e){var a=C(e);a.attributes.formnovalidate&&"submit"===a.type&&(t=!0)},v=function(){return E(x,"validity")&&E(x,"checkValidity")},f=function(e,t){if("email"===t)return!q.test(e.value);if("url"===t)return!M.test(e.value);if(t){var i=e.getAttribute("placeholder"),n=e.value;return a=RegExp("^(?:"+t+")$"),n===i?!1:""===n?!1:!a.test(e.value)}return!1},p=function(e){var t={placeholder:e.getAttribute("placeholder")},a=/^(focus|focusin|submit)$/i,r=/^(input|textarea)$/i,s=/^password$/i,l=!!("placeholder"in x);l||!r.test(e.nodeName)||s.test(e.type)||(""!==e.value||a.test(i)?e.value===t.placeholder&&a.test(i)&&(e.value="",A(e,n.placeholderClass)):(e.value=t.placeholder,b(e.form,"submit",function(){i="submit",p(e)},!0),N(e,n.placeholderClass)))},m=function(e,t){var a=parseInt(e.getAttribute("min"),10)||0,i=parseInt(e.getAttribute("max"),10)||!1,n=parseInt(e.getAttribute("step"),10)||1,r=parseInt(e.value,10),s=(r-a)%n;return g(e)||isNaN(r)?"number"===e.getAttribute("type")?!0:!1:"step"===t?e.getAttribute("step")?0!==s:!1:"min"===t?e.getAttribute("min")?a>r:!1:"max"===t?e.getAttribute("max")?r>i:!1:void 0},h=function(e){var t=!!e.attributes.required;return t?g(e):!1},g=function(e){var t=e.getAttribute("placeholder"),a=/^(checkbox|radio)$/i,i=!!e.attributes.required;return!(!i||""!==e.value&&e.value!==t&&(!a.test(e.type)||$(e)))},b=function(e,t,a,i){E(window,"addEventListener")?e.addEventListener(t,a,i):E(window,"attachEvent")&&window.event!==void 0&&("blur"===t?t="focusout":"focus"===t&&(t="focusin"),e.attachEvent("on"+t,a))},y=function(e,t,a,i){E(window,"removeEventListener")?e.removeEventListener(t,a,i):E(window,"detachEvent")&&window.event!==void 0&&e.detachEvent("on"+t,a)},w=function(e){e=e||window.event,e.stopPropagation&&e.preventDefault?(e.stopPropagation(),e.preventDefault()):(e.cancelBubble=!0,e.returnValue=!1)},C=function(e){return e=e||window.event,e.target||e.srcElement},N=function(e,t){var a;e.className?(a=RegExp("(^|\\s)"+t+"(\\s|$)"),a.test(e.className)||(e.className+=" "+t)):e.className=t},A=function(e,t){var a,i,n="object"==typeof t?t.length:1,r=n;if(e.className)if(e.className===t)e.className="";else for(;n--;)a=RegExp("(^|\\s)"+(r>1?t[n]:t)+"(\\s|$)"),i=e.className.match(a),i&&3===i.length&&(e.className=e.className.replace(a,i[1]&&i[2]?" ":""))},E=function(e,t){var a=typeof e[t],i=RegExp("^function|object$","i");return!!(i.test(a)&&e[t]||"unknown"===a)},$=function(e){for(var t=document.getElementsByName(e.name),a=0;t.length>a;a++)if(t[a].checked)return!0;return!1},{setup:r}});
+    <!-- Download Section -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="download-bg"></div>
+            <div class="container">
+                <div class="row">
+                    <h2>FAQ</h2>
+                    <div class="col-lg-4">
+                        <b>What is UB Hacking?</b>
+                        <br>
+                        UB Hacking is a 36 hour hackathon hosted at SUNY Buffalo by the UB ACM. It is a hackathon for students by students. We want to see students bring their awesome ideas to reality. UB Hacking will provide meals for the entirety of the hackathon, a place to nap (if you really need to), awesome free swag, and prize money and more!
+                    </div>
+                    <div class="col-lg-4">
+                        <b>What is a hackathon?</b>
+                        <br>
+                        A hackathon is when people who are excited about programming come together for a weekend and collaborate to build cool things. Entrepreneurs, designers, and developers work in teams to create hacks and apps for web or mobile platforms. For more information check out Wikipedia
+                    </div>
+                    <div class="col-lg-4">
+                        <b>Who can take part?</b>
+                        <br>
+                        UB Hacking is a student Hackathon. Therefore, if you are a student at a university or even high-school you can join us. We are open to all majors and years, even if you are a freshman. If you've never been to a hackathon, it's a good time to start, as we are all here to learn. Whether you have a team or not, we encourage anyone who is interested to come and hack for the weekend.
+                    </div>
 
-        </script>
-<link rel="alternate" type="text/xml+oembed" href="https://docs.google.com/forms/d/1n8lFAYHBBv8ThmSJr7F26txZHYgw0oHjJW7EVwoMZac/oembed?url=https://docs.google.com/forms/d/1n8lFAYHBBv8ThmSJr7F26txZHYgw0oHjJW7EVwoMZac/viewform&amp;format=xml">
-<meta property="og:title" content="UB Hacking Fall 2014 Registration"><meta property="og:type" content="article"><meta property="og:site_name" content="Google Docs"><meta property="og:url" content="https://docs.google.com/forms/d/1n8lFAYHBBv8ThmSJr7F26txZHYgw0oHjJW7EVwoMZac/viewform"><meta property="og:image" content="https://ssl.gstatic.com/docs/forms/social/social-forms.png"><meta property="og:image:width" content="90"><meta property="og:image:height" content="90">
-</head>
-<div itemscope itemtype="http://schema.org/CreativeWork/FormObject"><meta itemprop="name" content="UB Hacking Fall 2014 Registration">
+                </div>
+                <div class="row">
+                     <div class="col-lg-4">
+                        <b>What do I need to bring?</b>
+                        <br>
+                        You will of course need to bring your laptop and charger. On top of that, you should probably bring a phone charger. A power strip and a refillable water bottle should be on your list as well. Any hardware you plan to hack with should be brought, and maybe a sweatshirt if you happen to get cold.
+                    </div>
+                    <div class="col-lg-4">
+                        <b>What if I'm a coding newbie?</b>
+                        <br>
+                        You have nothing to worry about. We are all here to have fun and learn something new, so feel free to ask questions. Many of us are more than willing to help out.
+                    </div>
+                    <div class="col-lg-4">
+                        <b>I don't have a team, but would like to come. What should I do?</b>
+                        <br>
+                        You should come! We will have others like you, or teams looking for more people to join. At the start of the hackathon we have a time set to organize teams. You will definitely find someone to work with. You might also find other hackers in this year's event page on Facebook. You are also free to work alone!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-<meta itemprop="url" content="https://docs.google.com/forms/d/1n8lFAYHBBv8ThmSJr7F26txZHYgw0oHjJW7EVwoMZac/viewform">
-<meta itemprop="embedUrl" content="https://docs.google.com/forms/d/1n8lFAYHBBv8ThmSJr7F26txZHYgw0oHjJW7EVwoMZac/viewform?embedded=true">
-
-
-
-
-
-<div class="ss-form-container"><div class="ss-header-image-container"><div class="ss-header-image-image"><div class="ss-header-image-sizer"></div></div></div>
-<div class="ss-top-of-page"><div class="ss-form-heading"><div class="ss-form-title" dir="ltr">Register</div>
-
-
-<div class="a"><form action="https://docs.google.com/forms/d/1n8lFAYHBBv8ThmSJr7F26txZHYgw0oHjJW7EVwoMZac/formResponse" method="POST" id="ss-form" target="_self" onsubmit=""><ol role="list" >
-<div class="s" role="listitem">
-<div dir="ltr" class="a"><div class="v">
-<input type="text" name="entry.1991766747" value="" id="entry_1991766747" dir="auto" placeholder="Name" aria-required="true" required="" title="" display="block">
-<div class="error-message" id="1926094945_errorMessage"></div>
-
-</div></div></div> 
-
-<div class="ss-form-question errorbox-good" role="listitem">
-<div dir="ltr" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_195330268"><div class="ss-q-title">Email
-<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
-<span class="ss-required-asterisk">*</span></div>
-<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
-<input type="text" name="entry.195330268" value="" class="ss-q-short" id="entry_195330268" dir="auto" aria-label="Email  " aria-required="true" required="" title="">
-<div class="error-message" id="1825353542_errorMessage"></div>
-
-</div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
-<div dir="ltr" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_809883303"><div class="ss-q-title">School
-<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
-<span class="ss-required-asterisk">*</span></div>
-<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
-<input type="text" name="entry.809883303" value="" class="ss-q-short" id="entry_809883303" dir="auto" aria-label="School  " aria-required="true" required="" title="">
-<div class="error-message" id="888872302_errorMessage"></div>
-
-</div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
-<div dir="ltr" class="ss-item ss-item-required ss-select"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_238480589"><div class="ss-q-title">Year
-<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
-<span class="ss-required-asterisk">*</span></div>
-<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
-<select name="entry.238480589" id="entry_238480589" aria-label="Year  " aria-required="true" required=""><option value=""></option>
-<option value="Freshman">Freshman</option> <option value="Sophomore">Sophomore</option> <option value="Junior">Junior</option> <option value="Senior">Senior</option> <option value="Graduate">Graduate</option></select>
-</div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
-<div dir="ltr" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_1215054237"><div class="ss-q-title">Major
-<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
-<span class="ss-required-asterisk">*</span></div>
-<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
-<input type="text" name="entry.1215054237" value="" class="ss-q-short" id="entry_1215054237" dir="auto" aria-label="Major  " aria-required="true" required="" title="">
-<div class="error-message" id="2111802669_errorMessage"></div>
-
-</div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
-<div dir="ltr" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_1065838001"><div class="ss-q-title">Github Username
-<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
-<span class="ss-required-asterisk">*</span></div>
-<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
-<input type="text" name="entry.1065838001" value="" class="ss-q-short" id="entry_1065838001" dir="auto" aria-label="Github Username  " aria-required="true" required="" title="">
-<div class="error-message" id="1561707410_errorMessage"></div>
-
-</div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
-<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_2126715570"><div class="ss-q-title">Is This Your First Hackathon?
-<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
-<span class="ss-required-asterisk">*</span></div>
-<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
-
-<ul class="ss-choices" role="radiogroup" aria-label="Is This Your First Hackathon?  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.569834902" value="Yes" id="group_569834902_1" role="radio" class="ss-q-radio" aria-label="Yes" required="" aria-required="true"></span>
-<span class="ss-choice-label">Yes</span>
-</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.569834902" value="No" id="group_569834902_2" role="radio" class="ss-q-radio" aria-label="No" required="" aria-required="true"></span>
-<span class="ss-choice-label">No</span>
-</label></li></ul>
-<div class="error-message" id="2126715570_errorMessage"></div>
-</div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
-<div dir="ltr" class="ss-item  ss-checkbox"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_312612741"><div class="ss-q-title">Dietary Restrictions
-</div>
-<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
-
-<ul class="ss-choices" role="group" aria-label="Dietary Restrictions  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.224673307" value="Vegetarian" id="group_224673307_1" role="checkbox" class="ss-q-checkbox"></span>
-<span class="ss-choice-label">Vegetarian</span>
-</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.224673307" value="__other_option__" id="group_224673307_2" role="checkbox" class="ss-q-checkbox ss-q-other-toggle"></span>
-<span class="ss-choice-label">Other:</span></label>
-<span class="ss-q-other-container goog-inline-block"><input type="text" name="entry.224673307.other_option_response" value="" class="ss-q-other" id="entry_224673307_other_option_response" dir="auto" aria-label="Other"></span>
-</li></ul>
-<div class="error-message" id="312612741_errorMessage"></div>
-</div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
-<div dir="ltr" class="ss-item  ss-select"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_785935464"><div class="ss-q-title">Shirt Size
-</div>
-<div class="ss-q-help ss-secondary-text" dir="ltr"></div></label>
-<select name="entry.785935464" id="entry_785935464" aria-label="Shirt Size  "><option value=""></option>
-<option value="XS">XS</option> <option value="S">S</option> <option value="M">M</option> <option value="L">L</option> <option value="XL">XL</option></select>
-</div></div></div>
-<input type="hidden" name="draftResponse" value="[,,&quot;8057579104814671331&quot;]
-">
-<input type="hidden" name="pageHistory" value="0">
-
-
-<input type="hidden" name="fbzx" value="8057579104814671331">
-
-<div class="ss-item ss-navigate"><table id="navigation-table"><tbody><tr><td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
-<input type="submit" name="submit" value="Submit" id="ss-submit" class="btn-default btn-lg ">
-
-<script type='text/javascript' src='/static/forms/client/js/2220651830-formviewer_prd.js'></script>
-<script type="text/javascript">H5F.setup(document.getElementById('ss-form'));
-          _initFormViewer(
-            "[100,,[]\n]\n");</script></div>
-</section>
-
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <p>Have any questions? Want to sponsor? Reach out to us at <a href="mailto:contact@ubhacking.com">contact@ubhacking.com</a> and we will get back to you as soon as possible.
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://twitter.com/ubhacking" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/UBHacking" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <!-- jQuery Version 1.11.0 -->
     <script src="../js/jquery-1.11.0.js"></script>
