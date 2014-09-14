@@ -28,6 +28,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
+
 class Hacker(ndb.Model):
   first_name=ndb.StringProperty()
   last_name=ndb.StringProperty()
@@ -42,26 +43,33 @@ class Hacker(ndb.Model):
   resume=ndb.BlobProperty()
   date=ndb.DateTimeProperty(auto_now_add=True)
 
+
 class MainHandler(webapp2.RequestHandler):
   def get(self):
     template = JINJA_ENVIRONMENT.get_template('index.html')
     self.response.write(template.render())
+
 
 class RegistrationHandler(webapp2.RequestHandler):
   def get(self):
     template = JINJA_ENVIRONMENT.get_template('register/index.html')
     self.response.write(template.render())
 
+
 class SubmitHandler(webapp2.RequestHandler):
   def post(self):
-    s=""
-    resume = self.request.get('resume')
-    for arg in self.request.arguments():
-      s = s + arg + ' ' + self.request.get(arg) + '\n'
-    self.response.write(s)
+    self.redirect('/success')
+
+
+class SuccessHandler(webapp2.RequestHandler):
+  def get(self):
+    template = JINJA_ENVIRONMENT.get_template('success/index.html')
+    self.response.write(template.render())
+
 
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ('/register', RegistrationHandler),
-  ('/submit', SubmitHandler)
+  ('/submit', SubmitHandler),
+  ('/success', SuccessHandler)
 ], debug=True)
