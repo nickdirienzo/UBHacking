@@ -1,5 +1,6 @@
 .sponsor-logo {
-  max-width: 500px;
+  width: 100%;
+  height: auto;
 }
 
 .intro .intro-text.registration-title {
