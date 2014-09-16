@@ -1,49 +1,42 @@
+{% extends "template/home.html" %}
+        {% block links %}
+        <a class="navbar-brand page-scroll" href="/">
+            <span class="light">UB </span>Hacking
+        </a>
+    </div>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav">
+            <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+            <li class="hidden">
+                <a href="#page-top"></a>
+            </li>
 
-    <title>Starter Template for Bootstrap</title>
+        </ul>
+    </div>
+    {% endblock %}
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+{% block body %}
+    <!-- Intro Header -->
+        <header class="intro">
+            <div class="intro-body">
+                <div class="container">
+                    <!-- Start Form -->
+                    <row>
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="brand-heading">ub hacking</div>
+                            <p class="intro-text">November 7 - 9</p>
+                            </p>
+                        </div>
+                    </row>
+                    <row>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </header>
 
-    <link href="css/splash.css" rel="stylesheet">
-
-
-  </head>
-
-  <body>
-
-    <img src="bg.jpg">
-      <div class = "header">
-        <div class = "title">
-          <center> 
-            ubhacking 
-          </center>
-        </div>
-        <div class = "row buttons">
-        <center>
-          <button type="button" class = "btn btn-primary btn-info">More Info</button>
-          <button type="button" class = "btn btn-primary btn-sponsor">Sponsor</button>
-        </center>
-        </div>
-      </div>
-      <div class = "moreInfo">
-        <center>
-          <div class="row blurb">
-            Enter your email below to recieve updates about UB Hacking Fall 2014!
-          </div>
-          <div class="row">
-            <input class="email" placeholder="email" type="text" autofocus>
-           </div>
-        </center>
+{% endblock %}   </center>
       </div>
       <div class= "row afterSignup">
         <center>

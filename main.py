@@ -77,6 +77,12 @@ class RegistrationHandler(webapp2.RequestHandler):
     self.response.write(template.render())
 
 
+class SplashHandler(webapp2.RequestHandler):
+  def get(self):
+    template = JINJA_ENVIRONMENT.get_template('/template/splash.html')
+    self.response.write(template.render())
+
+
 class SubmitHandler(webapp2.RequestHandler):
   def post(self):
     if processFormData(self):
@@ -84,10 +90,12 @@ class SubmitHandler(webapp2.RequestHandler):
     else :
       self.redirect("/unsuccessful")
 
+
 class SuccessHandler(webapp2.RequestHandler):
   def get(self):
     template = JINJA_ENVIRONMENT.get_template('/template/successful.html')
     self.response.write(template.render())
+
 
 class UnsuccessHandler(webapp2.RequestHandler):
   def get(self):
@@ -95,10 +103,13 @@ class UnsuccessHandler(webapp2.RequestHandler):
     self.response.write(template.render())
 
 
+# app = webapp2.WSGIApplication([
+#   ('/', MainHandler),
+#   ('/register', RegistrationHandler),
+#   ('/submit', SubmitHandler),
+#   ('/successful', SuccessHandler),
+#   ('/unsuccessful', UnsuccessHandler)
+# ])
 app = webapp2.WSGIApplication([
-  ('/', MainHandler),
-  ('/register', RegistrationHandler),
-  ('/submit', SubmitHandler),
-  ('/successful', SuccessHandler),
-  ('/unsuccessful', UnsuccessHandler)
+  ('/', SplashHandler)
 ])
