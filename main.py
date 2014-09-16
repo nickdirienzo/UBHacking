@@ -30,20 +30,23 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 def processFormData(self):
   hacker = Hacker()
-  hacker.first_name = self.request.get('firstname')
-  hacker.last_name = self.request.get('lastname')
-  hacker.email = self.request.get('email')
-  hacker.school = self.request.get('school')
-  hacker.major = self.request.get('major')
-  hacker.github = self.request.get('github')
-  if self.request.get('firstHackathon'):
-    hacker.first_hackathon = True
-  if self.request.get('vegetarian'):
-    hacker.vegetarian  = True
-  hacker.dietary_restrictions = self.request.get('dietaryRestrictions')
-  hacker.shirt_size = self.request.get('shirtsize')
-  hacker.resume = self.request.get('resume')
-  hacker.put()
+  try:
+    hacker.first_name = self.request.get('firstname')
+    hacker.last_name = self.request.get('lastname')
+    hacker.email = self.request.get('email')
+    hacker.school = self.request.get('school')
+    hacker.major = self.request.get('major')
+    hacker.github = self.request.get('github')
+    if self.request.get('firstHackathon'):
+      hacker.first_hackathon = True
+    if self.request.get('vegetarian'):
+      hacker.vegetarian  = True
+    hacker.dietary_restrictions = self.request.get('dietaryRestrictions')
+    hacker.shirt_size = self.request.get('shirtsize')
+    hacker.resume = self.request.get('resume')
+    hacker.put()
+  except:
+    return False
   return True
 
 
@@ -77,13 +80,18 @@ class RegistrationHandler(webapp2.RequestHandler):
 class SubmitHandler(webapp2.RequestHandler):
   def post(self):
     if processFormData(self):
-      self.redirect("/success")
-    else:
-      self.response.write('uhhh...')
+      self.redirect("/successful")
+    else :
+      self.redirect("/unsuccessful")
 
 class SuccessHandler(webapp2.RequestHandler):
   def get(self):
-    template = JINJA_ENVIRONMENT.get_template('/template/success.html')
+    template = JINJA_ENVIRONMENT.get_template('/template/successful.html')
+    self.response.write(template.render())
+
+class UnsuccessHandler(webapp2.RequestHandler):
+  def get(self):
+    template = JINJA_ENVIRONMENT.get_template('/template/unsuccessful.html')
     self.response.write(template.render())
 
 
@@ -91,5 +99,6 @@ app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ('/register', RegistrationHandler),
   ('/submit', SubmitHandler),
-  ('/success', SuccessHandler)
-], debug=True)
+  ('/successful', SuccessHandler),
+  ('/unsuccessful', UnsuccessHandler)
+])
