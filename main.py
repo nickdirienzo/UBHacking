@@ -16,6 +16,8 @@
 #
 import os
 import urllib
+import json
+import datetime
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -38,12 +40,12 @@ def processFormData(self):
     hacker.major = self.request.get('major')
     hacker.github = self.request.get('github')
     if self.request.get('firstHackathon'):
-      hacker.first_hackathon = True
+      hacker.first_hackathon = 'yes'
     if self.request.get('vegetarian'):
-      hacker.vegetarian  = True
+      hacker.vegetarian  = 'yes'
     hacker.dietary_restrictions = self.request.get('dietaryRestrictions')
     hacker.shirt_size = self.request.get('shirtsize')
-    hacker.resume = self.request.get('resume')
+    hacker.time = datetime.strftime()
     hacker.put()
   except:
     return False
@@ -57,12 +59,11 @@ class Hacker(ndb.Model):
   school=ndb.StringProperty()
   major=ndb.StringProperty()
   github=ndb.StringProperty()
-  first_hackathon=ndb.BooleanProperty()
-  vegetarian=ndb.BooleanProperty()
+  first_hackathon=ndb.StringProperty()
+  vegetarian=ndb.StringProperty()
   dietary_restrictions=ndb.StringProperty()
   shirt_size=ndb.StringProperty()
-  resume=ndb.BlobProperty()
-  date=ndb.DateTimeProperty(auto_now_add=True)
+  date=ndb.StringProperty()
 
 
 class MainHandler(webapp2.RequestHandler):
@@ -102,14 +103,24 @@ class UnsuccessHandler(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('/template/unsuccessful.html')
     self.response.write(template.render())
 
+class GetData(webapp2.RequestHandler):
+  def get(self):
+      queries = Hacker.query()
+      hackers = []
+      for query in queries:
+        hackers.append(query.to_dict())
+      self.response.headers["Content-Type"] = "application/json"
+      self.response.write(json.dumps(hackers))
 
-# app = webapp2.WSGIApplication([
-#   ('/', MainHandler),
-#   ('/register', RegistrationHandler),
-#   ('/submit', SubmitHandler),
-#   ('/successful', SuccessHandler),
-#   ('/unsuccessful', UnsuccessHandler)
-# ])
+
 app = webapp2.WSGIApplication([
-  ('/', SplashHandler)
+  ('/', MainHandler),
+  ('/register', RegistrationHandler),
+  ('/submit', SubmitHandler),
+  ('/successful', SuccessHandler),
+  ('/unsuccessful', UnsuccessHandler),
+  ('/getdata', GetData)
 ])
+# app = webapp2.WSGIApplication([
+#   ('/', SplashHandler)
+# ])
