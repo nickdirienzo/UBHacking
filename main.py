@@ -45,7 +45,6 @@ def processFormData(self):
       hacker.vegetarian  = 'yes'
     hacker.dietary_restrictions = self.request.get('dietaryRestrictions')
     hacker.shirt_size = self.request.get('shirtsize')
-    hacker.time = datetime.strftime()
     hacker.put()
   except:
     return False
@@ -63,7 +62,7 @@ class Hacker(ndb.Model):
   vegetarian=ndb.StringProperty()
   dietary_restrictions=ndb.StringProperty()
   shirt_size=ndb.StringProperty()
-  date=ndb.StringProperty()
+  date=ndb.DateTimeProperty(auto_now_add=True)
 
 
 class MainHandler(webapp2.RequestHandler):
@@ -103,23 +102,13 @@ class UnsuccessHandler(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('/template/unsuccessful.html')
     self.response.write(template.render())
 
-class GetData(webapp2.RequestHandler):
-  def get(self):
-      queries = Hacker.query()
-      hackers = []
-      for query in queries:
-        hackers.append(query.to_dict())
-      self.response.headers["Content-Type"] = "application/json"
-      self.response.write(json.dumps(hackers))
-
 
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ('/register', RegistrationHandler),
   ('/submit', SubmitHandler),
   ('/successful', SuccessHandler),
-  ('/unsuccessful', UnsuccessHandler),
-  ('/getdata', GetData)
+  ('/unsuccessful', UnsuccessHandler)
 ])
 # app = webapp2.WSGIApplication([
 #   ('/', SplashHandler)
