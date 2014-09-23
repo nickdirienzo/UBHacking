@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
     function submitResume() {
-        alert("hi");
+
         var selected_file = document.getElementById('resume').files[0];
         var client = new Dropbox.Client({key: "g3btzms68f42hmx", token:"dDNPNOsuMJ8AAAAAAAAABQv_5j_QnElpvPwwm9mqUlh3kR9HdAkHZ8MjdZQE6w-j"});
         // Try to finish OAuth authorization.
@@ -12,8 +12,8 @@ $( document ).ready(function() {
         });
 
         if (client.isAuthenticated()) {
-            var name = String($('#firstname').val() + $('#lastname').val());
-            client.writeFile("hi", selected_file, function() {
+            var name = String($('#firstName').val() + $('#lastName').val() + ".pdf");
+            client.writeFile(name, selected_file, function() {
                 console.log("Resume submitted");
             });
         }
