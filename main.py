@@ -102,13 +102,24 @@ class UnsuccessHandler(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('/template/unsuccessful.html')
     self.response.write(template.render())
 
+class GetData(webapp2.RequestHandler):
+  def get(self):
+    user = users.get_current_user()
+    if user:
+      print 'Welcome, %s!' % user.nickname()
+      if users.is_current_user_admin():
+        print '<a href="/admin/">Go to admin area</a>'
+    else:
+      print 'who are you? NOT AUTHORIZED'
+
 
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ('/register', RegistrationHandler),
   ('/submit', SubmitHandler),
   ('/successful', SuccessHandler),
-  ('/unsuccessful', UnsuccessHandler)
+  ('/unsuccessful', UnsuccessHandler),
+  ('/getdata', GetData)
 ])
 # app = webapp2.WSGIApplication([
 #   ('/', SplashHandler)
