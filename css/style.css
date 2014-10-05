@@ -1,7 +1,19 @@
 .sponsor-logo {
-  max-width: 500px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 45px;
+}
+
+.intro .intro-text.registration-title {
+  font-size: 45px;
+  text-align: center
 }
 
 .form {
-  margin-top: 65px;
+  text-align: left;
+  margin-top: 100px;
+}
+
+.form-group {
+  margin-bottom: 35px;
 }

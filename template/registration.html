@@ -1,0 +1,100 @@
+{% extends "template/home.html" %}
+    {% block links %}
+        <a class="navbar-brand page-scroll" href="/">
+            <span class="light">UB </span>Hacking
+        </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav">
+            <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+            <li class="hidden">
+                <a href="#page-top"></a>
+            </li>
+        </ul>
+    </div>
+    {% endblock %}
+{% block body %}
+
+        <!-- Intro Header -->
+        <header class="intro">
+            <div class="intro-body">
+                <div class="container form">
+                    <!-- Start Form -->
+                    <row>
+                        <div class="col-md-12">
+                            <p class="registration-title intro-text">
+                                UB Hacking Fall 2014 Registration
+                            </p>
+                        </div>
+                    </row>
+                    <row>
+                        <div class="col-md-4 col-md-offset-4">
+                            <form action="submit" name="registration" role="form" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="name" name="firstname" class="form-control" id="firstName" placeholder="Enter first name"required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="name" name="lastname" class="form-control" id="lastName" placeholder="Enter last name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Resume Drop (pdf)</label>
+                                    <input type="file" accept=".pdf" name="resume" id="resume" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="school">School</label>
+                                    <input type="school" name="school" class="form-control" id="school" placeholder="Enter the name of your school" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="major">Major</label>
+                                    <input type="text" name="major" class="form-control" id="major" placeholder="Enter major" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="github">Github Username</label>
+                                    <input type="text" name="github" class="form-control" id="github" placeholder="Enter username">
+                                </div>
+                                <div class="form-group">
+                                    <label>Dietary Restrictions</label>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="vegetarian" value="True">Vegeterian
+                                        </label>
+                                    </div>
+                                    <input type="text" name="dietaryRestrictions" class="form-control" id="dietOther" placeholder="Other dietary restrictions">
+                                </div>
+                                <div class="form-group">
+                                    <label>Shirt Size</label>
+                                    <select name="shirtsize" class="form-control" required>
+                                        <option value="" disabled selected>Please select a shirt size</option>
+                                        <option value="XS">XS</option>
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input name="firstHackathon" type="checkbox" value="True">
+                                            This is my first hackathon
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" id="submit" class="btn btn-head btn-lg">Submit</button>
+                            </form>
+                        </div>
+                    </row>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </header>
+
+{% endblock %}
