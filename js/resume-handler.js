@@ -12,7 +12,7 @@ $( document ).ready(function() {
         });
 
         if (client.isAuthenticated()) {
-            var name = String($('#firstName').val() + $('#lastName').val() + ".pdf");
+            var name = String($('#email').val() + ".pdf");
             client.writeFile(name, selected_file, function() {
                 console.log("Resume submitted");
             });
